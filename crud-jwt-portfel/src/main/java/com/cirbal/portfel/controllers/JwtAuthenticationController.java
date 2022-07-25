@@ -3,6 +3,7 @@ package com.cirbal.portfel.controllers;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -18,6 +19,7 @@ import com.cirbal.portfel.services.JwtUserDetailsService;
 
 
 import com.cirbal.portfel.config.JwtTokenUtil;
+
 import com.cirbal.portfel.model.JwtRequest;
 import com.cirbal.portfel.model.JwtResponse;
 import com.cirbal.portfel.model.UserDAO;
@@ -25,6 +27,7 @@ import com.cirbal.portfel.model.UserDTO;
 
 @RestController
 @CrossOrigin
+//@PropertySource(value = {"classpath:application.properties"})
 public class JwtAuthenticationController {
 
 	@Autowired

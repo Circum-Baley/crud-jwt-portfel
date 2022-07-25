@@ -24,7 +24,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Lazy
+	
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
 	
