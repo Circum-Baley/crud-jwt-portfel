@@ -15,6 +15,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+@PropertySource(value={"classpath:application.properties"})
 @Component
 public class JwtTokenUtil implements Serializable {
 

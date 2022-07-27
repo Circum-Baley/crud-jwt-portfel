@@ -14,20 +14,23 @@ import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+@PropertySource(value={"classpath:application.properties"})
 @Service
 public class JwtUtil {
 
+	@Value("${jwt.secret}")
 	private String secret;
 	 
+	@Value("${jwt.expirationDateInMs}")
 	private int jwtExpirationInMs;
 	
 
-	@Value("${jwt.secret}")
+	
 	public void setSecret(String secret) {
 		this.secret = secret;
 	}
 	
-	@Value("${jwt.expirationDateInMs}")
+
 	public void setJwtExpirationInMs(int jwtExpirationInMs) {
 		this.jwtExpirationInMs = jwtExpirationInMs;
 	}

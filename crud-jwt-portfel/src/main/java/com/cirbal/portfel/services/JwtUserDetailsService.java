@@ -25,13 +25,13 @@ public class JwtUserDetailsService implements UserDetailsService {
 	private UserRepository userRepository;
 
 	
-	@Autowired
-	private PasswordEncoder bcryptEncoder;
+//	@Autowired
+//	private PasswordEncoder bcryptEncoder;
 	
-//	@Bean
-//	public PasswordEncoder encoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+	@Bean
+	public PasswordEncoder bcryptEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -46,7 +46,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	public UserDAO save(UserDTO user) {
 		UserDAO newUser = new UserDAO();
 		newUser.setUsername(user.getUsername());
-		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		newUser.setPassword(bcryptEncoder().encode(user.getPassword()));
 		return userRepository.save(newUser);
 	}
 }
