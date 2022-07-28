@@ -56,6 +56,11 @@ public class JwtAuthenticationController {
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
+	
+	@RequestMapping({ "/hello" })
+	public String firstPage() {
+		return "Hello World";
+	}
 
 	private void authenticate(String username, String password) throws Exception {
 		try {

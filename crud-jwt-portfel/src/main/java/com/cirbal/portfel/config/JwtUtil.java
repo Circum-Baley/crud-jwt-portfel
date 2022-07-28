@@ -14,25 +14,25 @@ import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-@PropertySource(value={"classpath:application.properties"})
+@PropertySource("classpath:/application.properties")
 @Service
 public class JwtUtil {
 
-	@Value("${jwt.secret}")
+	@Value("{jwtSecret}")
 	private String secret;
 	 
-	@Value("${jwt.expirationDateInMs}")
-	private int jwtExpirationInMs;
+	@Value("${jwtExpirationDateInMs}")
+	private int jwtExpirationDateInMs;
 	
 
-	
-	public void setSecret(String secret) {
-		this.secret = secret;
-	}
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 	
 
-	public void setJwtExpirationInMs(int jwtExpirationInMs) {
-		this.jwtExpirationInMs = jwtExpirationInMs;
+	public void setJwtExpirationDateInMs(int jwtExpirationDateInMs) {
+		this.jwtExpirationDateInMs = jwtExpirationDateInMs;
 	}
 
 	// generate token for user
@@ -51,7 +51,7 @@ public class JwtUtil {
 	private String doGenerateToken(Map<String, Object> claims, String subject) {
 
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs)).signWith(SignatureAlgorithm.HS512, secret).compact();
+				.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationDateInMs)).signWith(SignatureAlgorithm.HS512, secret).compact();
 	}
 
 }
