@@ -24,7 +24,7 @@ import com.cirbal.portfel.services.UserDetailsImpl;
 		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
-	private UserDetailsImpl userDetailsService;
+	UserDetailsImpl userDetailsImpl;
 	@Autowired
 	private AuthEntryPointJwt unauthorizedHandler;
 	@Bean
@@ -38,15 +38,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder authManagerBuilder) throws Exception {
-		authManagerBuilder.userDetailsService(userDetailsService)
-		.passwordEncoder(passwordEncoder());
+		authManagerBuilder.userDetailsService(userDetailsImpl).passwordEncoder(passwordEncoder());
+//		userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 //	@Override
 //	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 //		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 //	}
 
-	@Bean
+	
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
