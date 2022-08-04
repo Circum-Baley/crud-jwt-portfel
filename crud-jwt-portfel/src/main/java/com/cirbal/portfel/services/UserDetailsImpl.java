@@ -12,7 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.cirbal.portfel.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-@Service
+
+
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private Long id;
@@ -27,13 +28,20 @@ public class UserDetailsImpl implements UserDetails {
 		this.id = id;
 		this.username = username;
 		this.email = email;
+		this.password = password;
 		this.authorities = authorities;
 	}
 
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
-		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
+				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
+				.collect(Collectors.toList());
+		return new UserDetailsImpl(
+				user.getId(),
+				user.getUsername(),
+				user.getEmail(),
+				user.getPassword(),
+				authorities);
 	}
 
 	@Override
