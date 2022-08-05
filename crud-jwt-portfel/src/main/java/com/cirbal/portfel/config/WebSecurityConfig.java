@@ -30,9 +30,6 @@ import com.cirbal.portfel.services.UserDetailsImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsImpl;
-	
-//	@Autowired
-//	private AuthEntryPointJwt unauthorizedHandler;
 
 	@Autowired
 	private AuthenticationEntryPoint unauthorizedHandler;

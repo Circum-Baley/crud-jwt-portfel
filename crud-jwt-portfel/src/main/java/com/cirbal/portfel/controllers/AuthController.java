@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cirbal.portfel.enums.ERole;
+import com.cirbal.portfel.model.JwtResponse;
 import com.cirbal.portfel.model.LoginRequest;
+import com.cirbal.portfel.model.MessageResponse;
+import com.cirbal.portfel.model.Role;
 import com.cirbal.portfel.model.User;
 
 //import com.cirbal.portfel.model.MessageResponse;
@@ -52,13 +55,14 @@ public class AuthController {
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 		return ResponseEntity.ok(new JwtResponse(jwt, 
-												 userDetails.getId(), 
-												 userDetails.getUsername(), 
-												 userDetails.getEmail(), 
-												 roles));
+				userDetails.getId(), 
+				userDetails.getUsername(), 
+				userDetails.getEmail(), 
+				roles));
 	}
+	
 	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SingupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()

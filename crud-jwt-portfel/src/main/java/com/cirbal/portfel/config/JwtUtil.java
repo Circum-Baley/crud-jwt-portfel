@@ -59,15 +59,15 @@ public class JwtUtil {
 				.signWith(SignatureAlgorithm.HS512, jwtSecret)
 				.compact();
 	}
-
-	private String doGenerateToken(Map<String, Object> claims, String subject) {
-		return Jwts.builder()
-				.setClaims(claims)
-				.setSubject(subject)
-				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
-				.signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
-	}
+//------------- NUNCA SE HA LLAMADO ????????????????????'
+//	private String doGenerateToken(Map<String, Object> claims, String subject) {
+//		return Jwts.builder()
+//				.setClaims(claims)
+//				.setSubject(subject)
+//				.setIssuedAt(new Date(System.currentTimeMillis()))
+//				.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
+//				.signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
+//	}
 	public String getUserNameFromJwtToken(String token) {
 		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
 	}

@@ -11,25 +11,7 @@ import com.cirbal.portfel.model.User;
 import com.cirbal.portfel.repositories.UserRepository;
 
 
-//
-//import java.util.ArrayList;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Lazy;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.stereotype.Service;
-//
-//
-//import com.cirbal.portfel.model.UserDAO;
-//import com.cirbal.portfel.model.UserDTO;
-//import com.cirbal.portfel.repositories.UserRepository;
-//
-//
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
@@ -44,6 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	}
 
 }
+
 //	@Autowired
 //	private UserRepository userRepository;
 //
