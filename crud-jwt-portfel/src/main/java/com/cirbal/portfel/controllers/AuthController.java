@@ -22,10 +22,12 @@ import com.cirbal.portfel.model.JwtResponse;
 import com.cirbal.portfel.model.LoginRequest;
 import com.cirbal.portfel.model.MessageResponse;
 import com.cirbal.portfel.model.Role;
+import com.cirbal.portfel.model.SignupRequest;
 import com.cirbal.portfel.model.User;
+import com.cirbal.portfel.repositories.RoleRepository;
 
 //import com.cirbal.portfel.model.MessageResponse;
-import com.cirbal.portfel.repositories.RoleRepository;
+
 import com.cirbal.portfel.repositories.UserRepository;
 import com.cirbal.portfel.config.JwtUtil;
 import com.cirbal.portfel.services.UserDetailsImpl;
@@ -37,9 +39,10 @@ public class AuthController {
 	AuthenticationManager authenticationManager;
 	@Autowired
 	UserRepository userRepository;
+
 	@Autowired
-	RoleRepository roleRepository;
-	@Autowired
+	private RoleRepository roleRepository;
+	@Autowired 
 	PasswordEncoder encoder;
 	@Autowired
 	private JwtUtil jwtUtil;
@@ -62,7 +65,7 @@ public class AuthController {
 	}
 	
 	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SingupRequest signUpRequest) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()

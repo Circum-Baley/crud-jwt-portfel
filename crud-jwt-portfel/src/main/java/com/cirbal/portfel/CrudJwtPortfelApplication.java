@@ -28,7 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @EnableJpaRepositories("com.cirbal.portfel.repositories")
 
 
-public class CrudJwtPortfelApplication {//implements ApplicationRunner {
+public class CrudJwtPortfelApplication { //implements ApplicationRunner {
 
 	private final static Logger log = LoggerFactory.getLogger(CrudJwtPortfelApplication.class);
 //
@@ -48,9 +48,7 @@ public class CrudJwtPortfelApplication {//implements ApplicationRunner {
 		SpringApplication.run(CrudJwtPortfelApplication.class, args);
 		System.out.println("Benvenidos мать ублюдок");
 	}
-
-
-
+}
 //	void addViewControllers(ViewControllerRegistry registry) {
 //		registry.addViewController("/").setViewName("forward:/index");
 //	}
@@ -66,7 +64,7 @@ public class CrudJwtPortfelApplication {//implements ApplicationRunner {
 //		for (int i = 0; i < 5; i++) {
 //			User user = new User();
 //			user.setUsername(faker.name().username());
-//			user.setPassword(faker.dragonBall().character());
+//		user.setPassword(faker.dragonBall().character());
 //			User created = userRepository.save(user);
 //			UserInRole userInRole = new UserInRole(created, roles[new Random().nextInt(4)]);
 //			log.info("Usuario Creado - Username {} - Password {} - rol {}", created.getUsername(),
@@ -75,5 +73,4 @@ public class CrudJwtPortfelApplication {//implements ApplicationRunner {
 //		}
 //
 //	}
-
-}
+//}
