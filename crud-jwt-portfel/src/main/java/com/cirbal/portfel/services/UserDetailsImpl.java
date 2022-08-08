@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.cirbal.portfel.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 public class UserDetailsImpl implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private Long id;
@@ -34,14 +33,8 @@ public class UserDetailsImpl implements UserDetails {
 
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
-				.collect(Collectors.toList());
-		return new UserDetailsImpl(
-				user.getId(),
-				user.getUsername(),
-				user.getEmail(),
-				user.getPassword(),
-				authorities);
+				.map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
+		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
 	}
 
 	public Long getId() {
@@ -90,32 +83,25 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
+
 		return false;
 	}
-
-
-
-	
-
-
 
 }

@@ -19,11 +19,3 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	Boolean existsByEmail(String email);
 }
-
-
-//@Repository
-//public interface UserRepository extends CrudRepository<User, Integer> {
-//	
-//	UserDAO findByUsername(String username);
-//	
-//}

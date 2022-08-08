@@ -26,33 +26,3 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	}
 
 }
-
-//	@Autowired
-//	private UserRepository userRepository;
-//
-//	
-////	@Autowired
-////	private PasswordEncoder bcryptEncoder;
-//	
-//	@Bean
-//	public PasswordEncoder bcryptEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
-//
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		UserDAO user = userRepository.findByUsername(username);
-//		if (user == null) {
-//			throw new UsernameNotFoundException("User not found with username: " + username);
-//		}
-//		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-//				new ArrayList<>());
-//	}
-//	
-//	public UserDAO save(UserDTO user) {
-//		UserDAO newUser = new UserDAO();
-//		newUser.setUsername(user.getUsername());
-//		newUser.setPassword(bcryptEncoder().encode(user.getPassword()));
-//		return userRepository.save(newUser);
-//	}
-//}

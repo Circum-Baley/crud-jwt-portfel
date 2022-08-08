@@ -35,9 +35,9 @@ public class JwtUtil {
 	private final static Logger log = LoggerFactory.getLogger(CrudJwtPortfelApplication.class);
 
 
-	@Value("${jwt.secret}")
+	@Value("${jwtSecret}")
 	private String jwtSecret;
-	@Value("${jwt.expirationDateInMs}")
+	@Value("${jwtExpirationDateInMs}")
 	private int jwtExpirationInMs;
 
 	
