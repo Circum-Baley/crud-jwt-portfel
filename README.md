@@ -51,4 +51,3 @@ return -> Recursos De Moderador
 6 - /api/test/admin - GET - Acceso a recurso de rol de administrador 
 
 return -> Recursos De Administrador
-
