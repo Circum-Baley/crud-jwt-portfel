@@ -25,6 +25,7 @@ Spring Security - Postgres
 	"password":"123456789"
 }
 
+RETURN -->
 {
 	"id":3,
 	"username":"admin",
@@ -38,16 +39,16 @@ Spring Security - Postgres
 
 3 - /api/auth/all - GET - Recupera Recursos Publico
 
-return -> Recursos Publico OK
+RETURN --> Recursos Publico OK
 
 4 - /api/test/user - GET -  Acceso a recursos de rol de usuario
 
-return -> Recursos De Usuarios
+RETURN -->Recursos De Usuarios
 
 5 - /api/test/mod - GET - Acceso a recurso de rol de moderador 
 
-return -> Recursos De Moderador
+RETURN -->Recursos De Moderador
 
 6 - /api/test/admin - GET - Acceso a recurso de rol de administrador 
 
-return -> Recursos De Administrador
+RETURN -->Recursos De Administrador
