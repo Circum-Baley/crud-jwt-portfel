@@ -15,7 +15,7 @@ Spring Security - Postgres
 	"username":"admin",
 	"email":"email@gmail.com",
 	"password":"123456789",
-	"role":["admin"]
+        "role":["admin"]
 }
  
 2 - /api/auth/signin - POST - Ingreso de usuario 
